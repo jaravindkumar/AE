@@ -19,8 +19,20 @@
       "dest": "/server.js"
     },
     {
-      "src": "/(.*)",
+      "src": "/health",
+      "dest": "/server.js"
+    },
+    {
+      "src": "^/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*\\.(js|css|png|jpg|svg|ico|json|map))",
       "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
