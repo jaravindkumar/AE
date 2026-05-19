@@ -1,2 +1,2 @@
-import AEWaitTimes from '../AEWaitTimes';
+import AEWaitTimes from './AEWaitTimes';
 export default AEWaitTimes;
