@@ -108,11 +108,9 @@ export default function AEWaitTimes() {
   const [view, setView] = useState('list');
 
   useEffect(() => {
-    if (API_URL) {
-      fetchData();
-      const interval = setInterval(fetchData, 5 * 60 * 1000);
-      return () => clearInterval(interval);
-    }
+    fetchData();
+    const interval = setInterval(fetchData, 5 * 60 * 1000);
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -128,7 +126,7 @@ export default function AEWaitTimes() {
   async function fetchData() {
     try {
       setLoading(true);
-      const res = await fetch(`${API_URL}/api/ae-wait-times`);
+      const res = await fetch(`${API_URL}/api/ae-wait-times`, { cache: 'no-store' });
       if (!res.ok) throw new Error();
       const json = await res.json();
       setTrusts(json.data);
@@ -168,10 +166,10 @@ export default function AEWaitTimes() {
 
       {isEstimated && (
         <div style={{
-          backgroundColor: '#fef3c7', border: '1px solid #f59e0b',
-          borderRadius: 8, padding: 12, marginBottom: 16, fontSize: 14
+          backgroundColor: '#f0f9ff', border: '1px solid #bae6fd',
+          borderRadius: 8, padding: 12, marginBottom: 16, fontSize: 14, color: '#0369a1'
         }}>
-          Showing estimated wait times — connect a backend for live data.
+          Showing estimated wait times based on typical NHS patterns.
         </div>
       )}
 
