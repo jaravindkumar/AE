@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/ae-wait-times.js": {
+      "maxDuration": 30
+    }
+  }
+}
